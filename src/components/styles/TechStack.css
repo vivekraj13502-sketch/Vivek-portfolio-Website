@@ -1,0 +1,91 @@
+.techstack-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.techstack-section h2 {
+    font-size: 60px;
+    margin-bottom: 60px;
+    font-weight: 500;
+}
+
+.techstack-section h2 span {
+    color: var(--accentColor);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.tech-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--tool-color);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px -10px var(--tool-color);
+}
+
+.tech-icon {
+    font-size: 50px;
+    color: var(--tool-color);
+    transition: transform 0.3s ease;
+}
+
+.tech-card:hover .tech-icon {
+    transform: scale(1.1);
+}
+
+.tech-card.ga4 {
+    --tool-color: #E37400;
+}
+
+.tech-card.semrush {
+    --tool-color: #FF6224;
+}
+
+.tech-card.gsc {
+    --tool-color: #4285F4;
+}
+
+.tech-card.kp {
+    --tool-color: #34A853;
+}
+
+.tech-card.wp {
+    --tool-color: #21759B;
+}
+
+.tech-card p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ccc;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .techstack-section h2 {
+        font-size: 40px;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 20px;
+    }
+}
