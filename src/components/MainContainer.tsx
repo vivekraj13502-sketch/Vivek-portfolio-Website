@@ -1,13 +1,13 @@
 import { lazy, PropsWithChildren, Suspense, useEffect, useState } from "react";
-import About from "./About";
-import Career from "./Career";
-import Contact from "./Contact";
+const About = lazy(() => import("./About"));
+const Career = lazy(() => import("./Career"));
+const Contact = lazy(() => import("./Contact"));
+const Landing = lazy(() => import("./Landing"));
+const WhatIDo = lazy(() => import("./WhatIDo"));
+const Work = lazy(() => import("./Work"));
 import Cursor from "./Cursor";
-import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
-import WhatIDo from "./WhatIDo";
-import Work from "./Work";
 import setSplitText from "./utils/splitText";
 
 const TechStack = lazy(() => import("./TechStack"));
@@ -37,17 +37,29 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="container-main">
-            <Landing />
-            <About />
-            <WhatIDo />
-            <Career />
-            <Work />
+            <Suspense fallback={null}>
+              <Landing />
+            </Suspense>
+            <Suspense fallback={null}>
+              <About />
+            </Suspense>
+            <Suspense fallback={null}>
+              <WhatIDo />
+            </Suspense>
+            <Suspense fallback={null}>
+              <Career />
+            </Suspense>
+            <Suspense fallback={null}>
+              <Work />
+            </Suspense>
             {isDesktopView && (
               <Suspense fallback={<div>Loading....</div>}>
                 <TechStack />
               </Suspense>
             )}
-            <Contact />
+            <Suspense fallback={null}>
+              <Contact />
+            </Suspense>
           </div>
         </div>
       </div>
